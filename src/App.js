@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ShowButton from "./components/button/ShowButton";
+import Form from "./components/form/Form";
+import Card from "./components/card/Card";
+import APIExample from "./components/apiExample/APIExample";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    name: "",
+    email: ""
+  };
+
+  handleSubmit = (name, email) => {
+    this.setState({ name, email });
+  };
+
+  render() {
+    const { name, email } = this.state;
+    return (
+      <>
+        <h1>Welcome</h1>
+        <p>This is my lil app!</p>
+        {name && <p>My name is {name}</p>}
+        {email && <p>My email is {email}</p>}
+        <Card title="Happy Bunnies" author="Jon Wong" year={2001} />
+        <ShowButton />
+        <Form handleSubmit={this.handleSubmit} />
+        <APIExample />
+      </>
+    );
+  }
 }
 
 export default App;
