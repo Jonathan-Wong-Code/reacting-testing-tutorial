@@ -12,13 +12,4 @@ describe("<App />", () => {
   it("renders without crashing", () => {
     render(<App />);
   });
-
-  axios.get.mockResolvedValueOnce({
-    data: {
-      name: "pikachu",
-      sprites: {
-        front_default: "imgURL"
-      }
-    }
-  });
 });
